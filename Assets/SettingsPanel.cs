@@ -11,10 +11,10 @@ public class SettingsPanel
     public TimelineAsset AnimateOn;
     public TimelineAsset AnimateOff;
 
-    public InputField _signallingInput;
-    public InputField _ice1Input;
-    public InputField _ice2Input;
-    public InputField _ice3Input;
+    public InputField SignallingInput;
+    public InputField Ice1Input;
+    public InputField Ice2Input;
+    public InputField Ice3Input;
 
     private bool _shown;
     private PureP2PCommsNetwork _comms;
@@ -23,28 +23,28 @@ public class SettingsPanel
     {
         //Set up the input field initial values
         _comms = FindObjectOfType<PureP2PCommsNetwork>();
-        _signallingInput.text = _comms.SignallingServer;
+        SignallingInput.text = _comms.SignallingServer;
 
-        _signallingInput.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
-        _ice1Input.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
-        _ice2Input.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
-        _ice3Input.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
+        SignallingInput.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
+        Ice1Input.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
+        Ice2Input.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
+        Ice3Input.textComponent.horizontalOverflow = HorizontalWrapMode.Wrap;
 
         InitializeIceInputs();
 
         //React to the input field edits
-        _signallingInput.onEndEdit.AddListener(a => _comms.SignallingServer = a);
-        _ice1Input.onEndEdit.AddListener(a => ReplaceIce(0, a));
-        _ice2Input.onEndEdit.AddListener(a => ReplaceIce(1, a));
-        _ice3Input.onEndEdit.AddListener(a => ReplaceIce(2, a));
+        SignallingInput.onEndEdit.AddListener(a => _comms.SignallingServer = a);
+        Ice1Input.onEndEdit.AddListener(a => ReplaceIce(0, a));
+        Ice2Input.onEndEdit.AddListener(a => ReplaceIce(1, a));
+        Ice3Input.onEndEdit.AddListener(a => ReplaceIce(2, a));
     }
 
     private void InitializeIceInputs()
     {
         var ice = _comms.IceServers.ToArray();
-        if (ice.Length > 0) _ice1Input.text = ice[0].URL;
-        if (ice.Length > 1) _ice2Input.text = ice[1].URL;
-        if (ice.Length > 2) _ice3Input.text = ice[2].URL;
+        if (ice.Length > 0) Ice1Input.text = ice[0].URL;
+        if (ice.Length > 1) Ice2Input.text = ice[1].URL;
+        if (ice.Length > 2) Ice3Input.text = ice[2].URL;
     }
 
     private void ReplaceIce(int index, string url)
