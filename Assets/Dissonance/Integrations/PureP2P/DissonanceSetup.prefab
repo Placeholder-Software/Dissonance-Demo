@@ -54,10 +54,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SignallingServer: wss://because-why-not.com:12777/chatapp
   _iceServersList:
-  - _url: stun:because-why-not.com:12779
+  - _url: stun.l.google.com:19302
     _username: 
     _password: 
-  - _url: stun:stun.l.google.com:19302
+  - _url: stun1.l.google.com:19302
+    _username: 
+    _password: 
+  - _url: stun2.l.google.com:19302
     _username: 
     _password: 
 --- !u!114 &114528969576518336

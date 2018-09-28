@@ -25,7 +25,9 @@ public class JoinModal
 
     private static bool Validate([CanBeNull] string text)
     {
-        return !string.IsNullOrEmpty(text) && text.Contains("-");
+        return !string.IsNullOrEmpty(text)
+            && text.Length == 13
+            && text[6] == '-';
     }
 
     public void ShowModal()
@@ -71,16 +73,18 @@ public class JoinModal
             attempts++;
             yield return new WaitForSeconds(0.5f);
         } while (comms.Status != Dissonance.Networking.ConnectionStatus.Connected && attempts < 17);
+        
+        HideModal();
 
         if (comms.Status == Dissonance.Networking.ConnectionStatus.Connected)
         {
-            HideModal();
-            MenuPanel.gameObject.SetActive(false);
             InSessionPanel.gameObject.SetActive(true);
+            MenuPanel.gameObject.SetActive(false);
         }
         else
         {
             FailedModal.gameObject.SetActive(true);
+            MenuPanel.gameObject.SetActive(true);
         }
     }
 }
