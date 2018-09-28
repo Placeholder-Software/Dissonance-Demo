@@ -1,0 +1,3 @@
+This network system uses the WebRTC Network asset (https://assetstore.unity.com/packages/tools/network/webrtc-network-47846) to establish a peer to peer Dissonance session.
+
+WebRTC Network requires a "signalling server" to establish a session, this does not carry any voice traffic it simply negotiates connections between peers joining new sessions so it requires very little bandwidth. The demo scene is configured to use a test server, but you should host your own signalling server for real world usage.
