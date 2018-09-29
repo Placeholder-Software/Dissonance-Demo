@@ -10734,7 +10734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66f7aabc5578dd42bed77c90fd8b93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SignallingServer: wss://because-why-not.com:12777/chatapp
+  SignallingServer: ws://signalling.placeholder-software.co.uk/demo
   _iceServersList:
   - _url: stun.l.google.com:19302
     _username: 
